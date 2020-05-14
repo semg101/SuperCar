@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+      <class name="com.ds.supercar.model.vehicle.FuelType" table="supercarfueltype" schema="supercar">
+         <id name="fueltypeid">
+            <generator class="increment"/>
+         </id>
+         <property name="fueltype_name" unique="true"/>
+         <property name="fueltype_desc"/>
+      </class>
+ </hibernate-mapping>

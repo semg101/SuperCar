@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping>
+     <class name="com.ds.supercar.model.usermodel.User" table="supercaruser" schema="supercar">
+         <id name="userid">
+            <generator class="increment"/>
+         </id>
+         <property name="username"/>
+         <property name="password"/>
+         <property name="dob"/>
+         <property name="gender"/>
+         <property name="username"/>
+         <set name="addresses" cascade="all">
+             <key column="userid" />
+             <one-to-many class="com.ds.supercar.model.usermodel.Address"/>
+         </set>
+         <joined-subclass name="com.ds.supercar.model.usermodel.Employee" table="supercaremployee" schema="supercar">
+              <key column="userid"/>
+              <property name="joindate"/>
+              <property name="role"/>
+              <many-to-one name="branch" class="com.ds.supercar.model.places.Branch"/>
+              <joined-subclass name="com.ds.supercar.model.usermodel.Driver" table="supercardriver" schema="supercar">
+                   <key column="userid"/>
+                   <property name="licensenumber"/>
+               </joined-subclass>
+         </joined-subclass>
+               
+     </class>
+ </hibernate-mapping>

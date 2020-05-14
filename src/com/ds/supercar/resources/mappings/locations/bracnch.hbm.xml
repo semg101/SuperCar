@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+      <class name="com.ds.supercar.model.places.Branch" table="supercarbranch" schema="supercar">
+         <id name="branchid">
+            <generator class="foreign">
+                 <param name="property">location</param>
+            </generator>
+         </id>
+         <property name="name"/>
+         <property name="contact"/>
+         <property name="faxnumber"/>
+         <one-to-one name="location" class="com.ds.supercar.model.places.Location"/>
+      </class>
+ </hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+      <class name="com.ds.supercar.model.payment.VehicleCharges" table="supercarvehiclecharges" schema="supercar">
+         <id name="vehiclechargeid">
+            <generator class="foreign">
+                 <param name="property">cartype</param>
+            </generator>
+         </id>
+         <property name="h_c_p_day"/>
+         <property name="h_c_p_night"/>
+         <property name="c_p_day"/>
+         <property name="c_p_night"/>
+         <property name="c_p_week"/>
+         <property name="c_p_month"/>
+         <property name="extra_c_p_km"/>
+         <property name="wait_c_p_min"/>
+         <one-to-one name="cartype" class="com.ds.supercar.model.vehicle.CarType"/>
+      </class>
+ </hibernate-mapping>

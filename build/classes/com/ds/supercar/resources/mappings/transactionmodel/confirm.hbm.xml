@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping>
+     <class name="com.ds.supercar.model.transaction.Confirmation" table="supercarconfirmation" schema="supercar">
+          <id name="ccrid">
+             <generator class="foreign">
+                  <param name="property">bookingRecord</param>
+                  <param name="property">payment</param>
+             </generator>
+          </id>
+          <property name="ccr_flag"/>
+          <one-to-one name="bookingRecord" class="com.ds.supercar.model.transaction.BookingRecord"/>
+          <one-to-one name="payment" class="com.ds.supercar.model.payment.Payment"/>
+     </class>
+ </hibernate-mapping>
